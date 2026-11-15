@@ -1,0 +1,64 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/claude/blockchain
+plugins: platformdirs-4.13.0
+collecting ... collected 55 items
+
+tests/test_block_mempool.py::test_genesis_is_deterministic_and_valid PASSED
+tests/test_block_mempool.py::test_mined_block_meets_difficulty_and_nonce_matters PASSED
+tests/test_block_mempool.py::test_mempool_accepts_valid_tx PASSED       
+tests/test_block_mempool.py::test_mempool_rejects_bad_signature PASSED  
+tests/test_block_mempool.py::test_mempool_rejects_duplicate PASSED      
+tests/test_block_mempool.py::test_mempool_rejects_wrong_nonce PASSED    
+tests/test_block_mempool.py::test_mempool_rejects_insufficient_funds PASSED
+tests/test_block_mempool.py::test_mempool_counts_pending_spending PASSED
+tests/test_block_mempool.py::test_sequential_nonces_accepted_in_order PASSED
+tests/test_chain.py::test_miner_gets_reward_plus_fees PASSED            
+tests/test_chain.py::test_state_matches_balance_scan PASSED             
+tests/test_chain.py::test_valid_chain_validates PASSED                  
+tests/test_chain.py::test_changed_amount_in_old_block_is_detected PASSED
+tests/test_chain.py::test_remined_block_breaks_link_to_next PASSED      
+tests/test_chain.py::test_inflated_coinbase_rejected PASSED             
+tests/test_chain.py::test_double_spend_in_one_block_rejected PASSED     
+tests/test_chain.py::test_replay_rejected_by_nonce_even_without_tx_history PASSED
+tests/test_chain.py::test_replay_rejected_as_duplicate PASSED           
+tests/test_chain.py::test_block_with_wrong_difficulty_rejected PASSED   
+tests/test_chain.py::test_difficulty_rises_when_blocks_are_fast PASSED  
+tests/test_chain.py::test_difficulty_falls_when_blocks_are_slow PASSED  
+tests/test_chain.py::test_difficulty_unchanged_when_on_target PASSED    
+tests/test_chain.py::test_difficulty_stays_between_blocks_of_a_window PASSED
+tests/test_chain.py::test_save_and_load_roundtrip PASSED                
+tests/test_chain.py::test_tampered_file_is_refused PASSED               
+tests/test_chain.py::test_block_hash_changes_with_any_header_field PASSED
+tests/test_crypto_tx.py::test_address_is_hash_of_pubkey PASSED          
+tests/test_crypto_tx.py::test_valid_signature_passes PASSED             
+tests/test_crypto_tx.py::test_changed_amount_breaks_signature PASSED    
+tests/test_crypto_tx.py::test_foreign_key_does_not_match_address PASSED 
+tests/test_crypto_tx.py::test_serialization_is_deterministic PASSED     
+tests/test_crypto_tx.py::test_structure_rejects_bad_values PASSED       
+tests/test_crypto_tx.py::test_coinbase_ids_differ_by_height PASSED      
+tests/test_merkle.py::test_single_leaf_is_root PASSED                   
+tests/test_merkle.py::test_two_leaves PASSED                            
+tests/test_merkle.py::test_odd_count_duplicates_last PASSED             
+tests/test_merkle.py::test_empty_list_has_defined_root PASSED           
+tests/test_merkle.py::test_changing_any_leaf_changes_root PASSED        
+tests/test_merkle.py::test_order_matters PASSED                         
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[1] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[2] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[3] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[4] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[5] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[6] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[7] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[8] PASSED       
+tests/test_merkle.py::test_proofs_verify_for_every_leaf[9] PASSED       
+tests/test_merkle.py::test_wrong_leaf_or_tampered_proof_fails PASSED    
+tests/test_network.py::test_block_and_tx_propagate_between_nodes PASSED 
+tests/test_network.py::test_offline_node_catches_up_after_sync PASSED   
+tests/test_network.py::test_node_rejects_invalid_peer_chain PASSED      
+tests/test_network.py::test_heavier_chain_wins_even_if_shorter PASSED   
+tests/test_network.py::test_orphaned_transactions_return_to_mempool PASSED
+tests/test_network.py::test_light_client_verifies_inclusion PASSED      
+
+============================== 55 passed in 5.07s ==============================

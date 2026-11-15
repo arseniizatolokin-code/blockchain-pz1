@@ -1,0 +1,23 @@
+$ python cli.py wallet new alice
+адреса: 6fa738018d589215e3d44700634b12d4d52b8def
+$ python cli.py wallet new bob
+адреса: 911fd982cca828082fab9cabc823fc222d1822b7
+$ python cli.py --node http://127.0.0.1:5001 mine --wallet alice
+замайнено блок 1  хеш 000f1d3152994e49…  nonce 410  транзакцій 0
+$ python cli.py --node http://127.0.0.1:5001 balance alice
+баланс 50, доступно з урахуванням черги 50
+$ python cli.py --node http://127.0.0.1:5001 send --wallet alice --to bob --amount 20 --fee 2
+прийнято, tx_id: 874d122fc4fcd02a
+$ python cli.py --node http://127.0.0.1:5002 mempool
+874d122f  6fa73801… → 911fd982…  сума 20 комісія 2 nonce 0
+всього: 1
+$ python cli.py --node http://127.0.0.1:5003 mine --wallet bob
+замайнено блок 2  хеш 0001fe7902215c94…  nonce 1124  транзакцій 1
+$ python cli.py --node http://127.0.0.1:5001 chain
+#0   0008df97c97d28f6…  prev 00000000…  складність 12  транзакцій 0
+#1   000f1d3152994e49…  prev 0008df97…  складність 12  транзакцій 0
+#2   0001fe7902215c94…  prev 000f1d31…  складність 12  транзакцій 1
+$ python cli.py --node http://127.0.0.1:5002 balance bob
+баланс 72, доступно з урахуванням черги 72
+$ python cli.py --node http://127.0.0.1:5003 validate
+ланцюг коректний
